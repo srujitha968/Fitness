@@ -1,6 +1,5 @@
 import React from 'react'
 import style from '../styles/fit.module.css'
-import Waist from './waist'
 import All from './All';
 import { useRef } from 'react';
 
