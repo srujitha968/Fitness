@@ -1,0 +1,43 @@
+#container{
+    width: 98vw;
+    height: 100vh;
+}
+img{  
+  width: 97vw;
+  height: 98vh;
+  padding-top: 5px;
+  padding-left: 13px;
+}
+#imgtext1{
+    position: absolute;
+    top: 17%;
+    left: 37%;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+}
+#imgtext2{
+    position: absolute;
+    top: 22%;
+    left: 47%;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    text-decoration: underline;
+}
+#imgtext3{
+    position: absolute;
+    top: 84%;
+    left: 20%;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+}
+#imgtext4{
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+}

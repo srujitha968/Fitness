@@ -132,7 +132,7 @@ function Home() {
             />
             <br/><br/>
             <span style={{color:'red', fontWeight:'bold'}}>{error}</span><br/>
-            <button onClick={onSignup}>Signup</button>
+            <button onClick={onSignup} style={{backgroundColor:'#2980B9', color:'white'}}>Signup</button>
             <br/><br/>
           </form>
           <p>Have an account? <NavLink to='/login'>Login</NavLink> </p>

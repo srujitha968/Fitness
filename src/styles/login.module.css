@@ -1,16 +1,19 @@
 #main{
     width: 100vw;
     height: 100vh;
-    background-color: antiquewhite;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color:whitesmoke ;
 }
 #first{
     padding: 30px  30px;
     width: fit-content;
     height: fit-content;
-    background-color: rgba(123, 123, 123, 0.2);
+    background-color: #2980B9;
     border-radius: 19px;
+}
+.col{
+    color: white;
 }

@@ -4,25 +4,26 @@ import {auth} from './Firebase'
 import { Navigate } from 'react-router-dom';
 
 
-const Protected = ({children}) => {
+const ProtectedGaurd = ({children}) => {
 
-    const [user, setUser] = useState('')
-    const [loading, setLoading] = useState('')
+    const[user, setUser] = useState(null);
+    const[loading, setLoading] = useState(true)
+
 
     useEffect(()=>{
-        const s = onAuthStateChanged(auth, (currentuser)=>{
+        const unsubscribe = onAuthStateChanged(auth, (currentuser)=>{
             setUser(currentuser)
             setLoading(false)
         })
-        return ()=> s();
+        return ()=> unsubscribe();
     },[])
 
     if(loading){
-        return <p>loading...</p>
+        return <p>Loading...</p>
     }
-    
-    return user ? children : <Navigate to='/login'></Navigate>
+
+    return user ? children : <Navigate to="/login"></Navigate>
   
 }
 
-export default Protected
+export default ProtectedGaurd

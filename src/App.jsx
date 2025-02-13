@@ -5,6 +5,10 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Fit from './pages/Fit'
 import Protected from './Protected'
+import Waist from './pages/waist'
+import Back from './pages/Back'
+import Chest from './pages/Chest'
+import Neck from './pages/Neck'
 
 function App() {
   return (
@@ -16,6 +20,10 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/fit' element={
             <Protected><Fit/></Protected> }/>
+          <Route path='/waist' element={<Waist/>} />
+          <Route path='/back' element={<Back/>} />
+          <Route path='/chest' element={<Chest/>} />
+          <Route path='/neck' element={<Neck/>} />
         </Routes>
       </BrowserRouter>
     </>
