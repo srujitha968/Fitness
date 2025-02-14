@@ -8,6 +8,10 @@ import Waist from './pages/Waist'
 import Back from './pages/Back'
 import Chest from './pages/Chest'
 import Neck from './pages/Neck'
+import Legs from './pages/Legs'
+import Arms from './pages/Arms'
+import Upperlegs from './pages/Upperlegs'
+import Upperarms from './pages/Upperarms'
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
           <Route path='/back' element={<Back/>} />
           <Route path='/chest' element={<Chest/>} />
           <Route path='/neck' element={<Neck/>} />
+          <Route path='/legs' element={<Legs/>} />
+          <Route path='/arms' element={<Arms/>} />
+          <Route path='/upperlegs' element={<Upperlegs/>} />
+          <Route path='/upperarms' element={<Upperarms/>} />
         </Routes>
       </BrowserRouter>
     </>

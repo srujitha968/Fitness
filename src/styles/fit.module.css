@@ -41,3 +41,18 @@ img{
     font-weight: bold;
     font-size: xx-large;
 }
+@media(max-width:500px){
+    #imgtext1{
+        font-size: medium;
+    }
+    #imgtext2{
+        font-size: medium;
+        top: 25%;
+    }
+    #imgtext3{
+        font-size: medium;
+    }
+    #imgtext4{
+        font-size: medium;
+    }
+}

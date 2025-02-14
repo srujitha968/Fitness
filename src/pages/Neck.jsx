@@ -6,11 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import style from '../styles/waist.module.css'
-import { useNavigate } from 'react-router-dom';
 
-function Waist() {
-    const navigate = useNavigate()
-    const [Waist, setWaist] = React.useState([])
+function Neck() {
     const [gif, setGif] = React.useState([])
     const [name, setName] = React.useState([])
     const [smuscles, setSmuscles] = React.useState([])  //smuscles means secondaymuscles
@@ -18,26 +15,17 @@ function Waist() {
 
     const api = async () => {
         try {
-            const data = await fetch('https://exercisedb.p.rapidapi.com/exercises/name/neck?offset=0&limit=10', {
+            const data = await fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/neck?limit=10&offset=0', {
                 headers: {
                     'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
                     'x-rapidapi-key': '4347973f0fmsheb80c7564526789p1bc6c4jsne273ada830b8'
                 }
             })
             const response = await data.json()
-            setWaist(response)
-            setGif([response[0].gifUrl, response[1].gifUrl, response[2].gifUrl, response[3].gifUrl,
-                 response[4].gifUrl, response[5].gifUrl
-            ])
-            setName([response[0].name, response[1].name, response[2].name, response[3].name,
-                response[4].name, response[5].name
-            ])
-            setSmuscles([response[0].secondaryMuscles, response[1].secondaryMuscles,
-                response[2].secondaryMuscles, response[3].secondaryMuscles,
-                response[4].secondaryMuscles, response[5].secondaryMuscles
-            ])
-            setInstr([response[0].instructions, response[1].instructions, response[2].instructions, response[3].instructions,
-                response[4].instructions, response[5].instructions])
+            setGif([response[0].gifUrl, response[1].gifUrl ])
+            setName([response[0].name, response[1].name ])
+            setSmuscles([response[0].secondaryMuscles, response[1].secondaryMuscles ])
+            setInstr([response[0].instructions, response[1].instructions ])
         }
         catch { }
     }
@@ -53,7 +41,7 @@ function Waist() {
     return (<>
         <h1 style={{textAlign:'center', paddingTop:'20px'}}></h1>
         <div id={style.container}>
-            {gif.length > 0 && (
+            {gif.length > 0 ? (
             <>
                 <Card sx={{ maxWidth: 310 }}>
                     <CardMedia
@@ -98,101 +86,10 @@ function Waist() {
                         <Button size="small">Instructions</Button>
                     </CardActions>
                 </Card>
-
-                <Card sx={{ maxWidth: 310 }}>
-                    <CardMedia
-                        component="img"
-                        alt="green iguana"
-                        image={gif[2]}
-                        sx={{ width: '300px', height: '250px' }}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {name[2]}
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            The secondary Muscles that will be effect by 
-                            doing this exercise are <h3 className={style.h}>{smuscles[2][0]}</h3>
-                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[2][1]}</h3> 
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Instructions</Button>
-                    </CardActions>
-                </Card>
-
-                <Card sx={{ maxWidth: 310 }}>
-                    <CardMedia
-                        component="img"
-                        alt="green iguana"
-                        image={gif[3]}
-                        sx={{ width: '300px', height: '250px' }}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {name[3]}
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            The secondary Muscles that will be effect by 
-                            doing this exercise are <h3 className={style.h}>{smuscles[3][0]}</h3>
-                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[3][1]}</h3> 
-                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[3][2]}</h3>
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Instructions</Button>
-                    </CardActions>
-                </Card>
-
-                <Card sx={{ maxWidth: 310 }}>
-                    <CardMedia
-                        component="img"
-                        alt="green iguana"
-                        image={gif[4]}
-                        sx={{ width: '300px', height: '250px' }}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {name[4]}
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            The secondary Muscles that will be effect by 
-                            doing this exercise are <h3 className={style.h}>{smuscles[4][0]}</h3>
-                             <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[4][1]}</h3>
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Instructions</Button>
-                    </CardActions>
-                </Card>
-
-                <Card sx={{ maxWidth: 310 }}>
-                    <CardMedia
-                        component="img"
-                        alt="green iguana"
-                        image={gif[5]}
-                        sx={{ width: '300px', height: '250px' }}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {name[5]}
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            The secondary Muscles that will be effect by 
-                            doing this exercise are <h3 className={style.h}>{smuscles[5][0]}</h3>
-                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[5][1]}</h3>
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Instructions</Button>
-                    </CardActions>
-                </Card>
             </>
-        )}
-        </div><br/>
-        <button id={style.head} onClick={()=>navigate('/fit')}>Home</button>
-        <br/><br/>
+        ):(<p>Loading...</p>)}
+        </div>
         </>
     );
 }
-export default Waist;
+export default Neck;

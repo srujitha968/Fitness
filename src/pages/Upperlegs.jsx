@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import style from '../styles/waist.module.css'
 
-function Back() {
+function Upperlegs() {
     const [gif, setGif] = React.useState([])
     const [name, setName] = React.useState([])
     const [smuscles, setSmuscles] = React.useState([])  //smuscles means secondaymuscles
@@ -15,33 +15,33 @@ function Back() {
 
     const api = async () => {
         try {
-            const data = await fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/back?limit=10&offset=0', {
+            const data = await fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/upper legs?limit=10&offset=0', {
                 headers: {
-                    'x-rapidapi-host': 'exercisedb.p.rapidapi.com' ,
+                    'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
                     'x-rapidapi-key': '4347973f0fmsheb80c7564526789p1bc6c4jsne273ada830b8'
                 }
             })
             const response = await data.json()
-            setGif([response[0].gifUrl, response[1].gifUrl, response[2].gifUrl, response[3].gifUrl,
+            setGif([response[0].gifUrl, response[4].gifUrl, response[2].gifUrl, response[3].gifUrl,
                 response[6].gifUrl, response[7].gifUrl, response[8].gifUrl, response[9].gifUrl,
-                response[4].gifUrl, response[5].gifUrl
+                response[1].gifUrl, response[5].gifUrl
             ])
-            setName([response[0].name, response[1].name, response[2].name, response[3].name,
+            setName([response[0].name, response[4].name, response[2].name, response[3].name,
                 response[6].name, response[7].name, response[8].name, response[9].name,
-                response[4].name, response[5].name
+                response[1].name, response[5].name
             ])
-            setSmuscles([response[0].secondaryMuscles, response[1].secondaryMuscles,
+            setSmuscles([response[0].secondaryMuscles, response[4].secondaryMuscles,
                 response[2].secondaryMuscles, response[3].secondaryMuscles,response[6].secondaryMuscles,
                 response[7].secondaryMuscles, response[8].secondaryMuscles, response[9].secondaryMuscles,
-                response[4].secondaryMuscles, response[5].secondaryMuscles
+                response[1].secondaryMuscles, response[5].secondaryMuscles
             ])
-            setInstr([response[0].instructions, response[1].instructions, response[2].instructions, response[3].instructions,
+            setInstr([response[0].instructions, response[4].instructions, response[2].instructions, response[3].instructions,
                 response[6].instructions, response[7].instructions, response[8].instructions, response[9].instructions,
-                response[4].instructions, response[5].instructions])
+                response[1].instructions, response[5].instructions])
         }
         catch { }
     }
-    
+ 
     React.useEffect(() => {
         api();
     }, [])
@@ -53,7 +53,7 @@ function Back() {
     return (<>
         <h1 style={{textAlign:'center', paddingTop:'20px'}}></h1>
         <div id={style.container}>
-            {gif.length > 0 ? (
+            {gif.length > 0 ?(
             <>
                 <Card sx={{ maxWidth: 310 }}>
                     <CardMedia
@@ -113,7 +113,7 @@ function Back() {
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                             The secondary Muscles that will be effect by 
                             doing this exercise are <h3 className={style.h}>{smuscles[2][0]}</h3>
-                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[2][1]}</h3>  
+                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[2][1]}</h3> 
                         </Typography>
                     </CardContent>
                     <CardActions>
@@ -178,7 +178,8 @@ function Back() {
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                             The secondary Muscles that will be effect by 
-                            doing this exercise are <h3 className={style.h}>{smuscles[5]}</h3> 
+                            doing this exercise are <h3 className={style.h}>{smuscles[5][0]}</h3>
+                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[5][1]}</h3>
                         </Typography>
                     </CardContent>
                     <CardActions>
@@ -279,4 +280,4 @@ function Back() {
         </>
     );
 }
-export default Back;
+export default Upperlegs;

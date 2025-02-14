@@ -6,11 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import style from '../styles/waist.module.css'
-import { useNavigate } from 'react-router-dom';
 
-function Waist() {
-    const navigate = useNavigate()
-    const [Waist, setWaist] = React.useState([])
+function Chest() {
     const [gif, setGif] = React.useState([])
     const [name, setName] = React.useState([])
     const [smuscles, setSmuscles] = React.useState([])  //smuscles means secondaymuscles
@@ -18,26 +15,29 @@ function Waist() {
 
     const api = async () => {
         try {
-            const data = await fetch('https://exercisedb.p.rapidapi.com/exercises/name/chest?offset=0&limit=10', {
+            const data = await fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/chest?limit=10&offset=0', {
                 headers: {
                     'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
                     'x-rapidapi-key': '4347973f0fmsheb80c7564526789p1bc6c4jsne273ada830b8'
                 }
             })
             const response = await data.json()
-            setWaist(response)
             setGif([response[0].gifUrl, response[4].gifUrl, response[2].gifUrl, response[3].gifUrl,
-                response[6].gifUrl, response[7].gifUrl, response[8].gifUrl, response[9].gifUrl
+                response[6].gifUrl, response[7].gifUrl, response[8].gifUrl, response[9].gifUrl,
+                response[1].gifUrl, response[5].gifUrl
             ])
             setName([response[0].name, response[4].name, response[2].name, response[3].name,
-                response[6].name, response[7].name, response[8].name, response[9].name
+                response[6].name, response[7].name, response[8].name, response[9].name,
+                response[1].name, response[5].name
             ])
             setSmuscles([response[0].secondaryMuscles, response[4].secondaryMuscles,
                 response[2].secondaryMuscles, response[3].secondaryMuscles,response[6].secondaryMuscles,
-                response[7].secondaryMuscles, response[8].secondaryMuscles, response[9].secondaryMuscles
+                response[7].secondaryMuscles, response[8].secondaryMuscles, response[9].secondaryMuscles,
+                response[1].secondaryMuscles, response[5].secondaryMuscles
             ])
             setInstr([response[0].instructions, response[4].instructions, response[2].instructions, response[3].instructions,
-                response[6].instructions, response[7].instructions, response[8].instructions, response[9].instructions])
+                response[6].instructions, response[7].instructions, response[8].instructions, response[9].instructions,
+                response[1].instructions, response[5].instructions])
         }
         catch { }
     }
@@ -53,7 +53,7 @@ function Waist() {
     return (<>
         <h1 style={{textAlign:'center', paddingTop:'20px'}}></h1>
         <div id={style.container}>
-            {gif.length > 0 && (
+            {gif.length > 0 ?(
             <>
                 <Card sx={{ maxWidth: 310 }}>
                     <CardMedia
@@ -230,12 +230,54 @@ function Waist() {
                         <Button size="small">Instructions</Button>
                     </CardActions>
                 </Card>
+
+                <Card sx={{ maxWidth: 310 }}>
+                    <CardMedia
+                        component="img"
+                        alt="green iguana"
+                        image={gif[8]}
+                        sx={{ width: '300px', height: '250px' }}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {name[8]}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            The secondary Muscles that will be effect by 
+                            doing this exercise are <h3 className={style.h}>{smuscles[8][0]}</h3> 
+                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[8][1]}</h3> 
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small">Instructions</Button>
+                    </CardActions>
+                </Card>
+
+                <Card sx={{ maxWidth: 310 }}>
+                    <CardMedia
+                        component="img"
+                        alt="green iguana"
+                        image={gif[9]}
+                        sx={{ width: '300px', height: '250px' }}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {name[9]}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            The secondary Muscles that will be effect by 
+                            doing this exercise are <h3 className={style.h}>{smuscles[9][0]}</h3> 
+                            <h3 className={style.h}>,</h3> <h3 className={style.h}>{smuscles[9][1]}</h3> 
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small">Instructions</Button>
+                    </CardActions>
+                </Card>
             </>
-        )}
-        </div><br/>
-        <button id={style.head} onClick={()=>navigate('/fit')}>Home</button>
-        <br/><br/>
+        ):(<p>Loading...</p>)}
+        </div>
         </>
     );
 }
-export default Waist;
+export default Chest;

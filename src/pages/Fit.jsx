@@ -16,7 +16,7 @@ function Fit() {
     <div style={{backgroundColor:'antiquewhite'}}>
     <div id={style.container}>
       <img src='/gym.jpg'/>
-      <div id={style.imgtext1}>Welcome to 3F Fitness Center</div><br/>
+      <div id={style.imgtext1}>Welcome to F3 Fitness Center</div><br/>
       <div id={style.imgtext2} onClick={handleExploreClick} style={{ cursor: 'pointer' }}
       >Explore</div>
       <div id={style.imgtext3}>I wear white when I workout because it's funeral for my fat</div>

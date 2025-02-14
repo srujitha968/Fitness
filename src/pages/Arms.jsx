@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import style from '../styles/waist.module.css'
 
-function Back() {
+function Arms() {
     const [gif, setGif] = React.useState([])
     const [name, setName] = React.useState([])
     const [smuscles, setSmuscles] = React.useState([])  //smuscles means secondaymuscles
@@ -15,7 +15,7 @@ function Back() {
 
     const api = async () => {
         try {
-            const data = await fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/back?limit=10&offset=0', {
+            const data = await fetch('https://exercisedb.p.rapidapi.com/exercises/bodyPart/lower arms?limit=10&offset=0', {
                 headers: {
                     'x-rapidapi-host': 'exercisedb.p.rapidapi.com' ,
                     'x-rapidapi-key': '4347973f0fmsheb80c7564526789p1bc6c4jsne273ada830b8'
@@ -279,4 +279,4 @@ function Back() {
         </>
     );
 }
-export default Back;
+export default Arms;
